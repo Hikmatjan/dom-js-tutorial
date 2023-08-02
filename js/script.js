@@ -3,8 +3,9 @@ let chooseBtn=document.getElementById('choose'),
     contactForm=document.getElementsByClassName('contactform_name') [0],
     text=document.getElementsByTagName('h2')[0],
     modal = document.querySelector('.modal'),
-    btn = document.querySelectorAll('.main_tel_title')[0],
-    closeBtn= documetn.querySelector('.close'); 
+    btn = document.querySelectorAll('.main_tel_title'),
+    closeBtn= document.querySelector('.close'),
+    message =  document.getElementsByName('message')[0];
 
 
 
@@ -24,13 +25,20 @@ let chooseBtn=document.getElementById('choose'),
 
 
     text.addEventListener('mouseenter',hover)
-    text.addEventListener('mouseleave', function() {
+    text.addEventListener('mouseleave', function () {
         text.textContent = 'Все включено'
     })
+
     
-receiveBtn.addEventListener('click', function(){
-    modal.style.display = 'block'
-})
-closeBtn.addEventListener('click', function(){
-    modal.style.display = 'none'
-})
+    receiveBtn.addEventListener('click', function(){
+        modal.style.display = 'block'
+    })
+
+    closeBtn.addEventListener('click', function(){
+        modal.style.display = 'none'
+    })  
+    contactForm.addEventListener('input',function(){
+        message.value = `Mening ismim ${contactForm.value} dasturchi:`
+
+    })
+     
